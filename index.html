@@ -7,7 +7,7 @@
     <title>Home - Brand</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
     <link rel="stylesheet" href="assets/css/Video-Responsive-YouTube.css">
@@ -51,15 +51,6 @@
                     </div>
                 </div>
                 <div class="row align-items-center" style="padding-bottom: 10px;">
-                    <div class="col-md-6"><img class="image-fluid" src="assets/img/roswell-daily-record.jpg" style="max-width: 560px;"></div>
-                    <div class="col-md-6">
-                        <h3><br><strong>RAAF Captures Flying Saucer in Rowell Region 7/8/1947</strong><br><br></h3>
-                        <div class="getting-started-info"><a href="http://www.angelfire.com/indie/anna_jones1/daily_record.html">Roswell Daily Record<br></a>
-                            <p>An anonymous rancher and a couple saw a flying saucer in Roswell, New Mexico<br></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row align-items-center" style="padding-bottom: 10px;">
                     <div class="col-md-6"><img class="image-fluid" src="assets/img/livingston-post.jpg" style="max-width: 560px;"></div>
                     <div class="col-md-6">
                         <h3><br><strong>Robert Taylor's Encounter 11/9/1979</strong><br><br></h3>
@@ -68,20 +59,31 @@
                         </div>
                     </div>
                 </div>
+                <div class="row align-items-center" style="padding-bottom: 10px;">
+                    <div class="col-md-6"><img class="image-fluid" src="assets/img/roswell-daily-record.jpg" style="max-width: 560px;"></div>
+                    <div class="col-md-6">
+                        <h3><br><strong>RAAF Captures Flying Saucer in Rowell Region 7/8/1947</strong><br><br></h3>
+                        <div class="getting-started-info"><a href="http://www.angelfire.com/indie/anna_jones1/daily_record.html">Roswell Daily Record<br></a>
+                            <p>An anonymous rancher and a couple saw a flying saucer in Roswell, New Mexico<br></p>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="container" id="CuratedSightings" style="padding-top: 15px;padding-bottom: 15px;">
-                <h2 class="text-info">Curated Sightings</h2><input type="text" id="DateInput" style="filter: invert(12%);padding-top: 0px;margin: 10px;" placeholder="1/2/2010"><button class="btn btn-primary" id="DateFilter" type="button" style="margin: 15px;">Date Filter</button></div>
-            <div
-                class="container">
+            <div class="container" id="CuratedSightings" style="padding-top: 15px;padding-bottom: 15px;margin-top: 50px;">
+                <div class="text-center block-heading">
+                    <h2 class="text-center text-info">Curated Sightings</h2>
+                    <p class="text-center" style="max-width: 560px;">January 2010 reports of UFO sightings</p><input type="text" id="DateInput" style="filter: invert(12%);padding-top: 0px;margin: 10px;"><button class="btn btn-primary" id="DateFilter" type="button" style="margin: 15px;">Date Filter</button></div>
+            </div>
+            <div class="container">
                 <div class="table-responsive">
                     <table class="table table-striped table-dark" id="Sightings">
                         <thead>
                             <tr style="background-color: #ffffff;color: rgb(0,33,67);"></tr>
                         </thead>
-                        <tbody></tbody>
+                        <tbody id="table-body"></tbody>
                     </table>
                 </div>
-                </div>
+            </div>
         </section>
         <section class="clean-block about-us">
             <div class="container" id="AboutMe">
@@ -107,8 +109,9 @@
             <p>© 2019 Janine White</p>
         </div>
     </footer>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
     <script src="assets/js/smoothproducts.min.js"></script>
     <script src="assets/js/theme.js"></script>
