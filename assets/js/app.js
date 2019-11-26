@@ -1,3 +1,9 @@
+// Define filter values
+var dateText = "";
+var cityText = "";
+var stateSelected = "";
+var shapeSelected = "";
+
 // Get data from data.js
 var tableData = data;
 var firstRow = tableData[0]
@@ -43,10 +49,15 @@ function generateTableHead(row,firstRow) {
 }
 
 // Create table body
-function generateTableBody(body, data, dateFilter) {
-    console.log("Loading Table Body, Filter: "+dateFilter);
+function generateTableBody(body, data, dateFilter, cityFilter, stateFilter, shapeFilter) {
+    console.log("Loading Table Body, Filters: "+dateFilter+", "+cityFilter+", "+stateFilter+", "+shapeFilter);
     for (element of data) {
-        if ((dateFilter == "") || (dateFilter == element.datetime) ) {
+        noneSelected = ((dateFilter == "") && (cityFilter == "") && (stateFilter == "") && (shapeFilter == ""));
+        let dateFound = ((dateFilter == "") || (dateFilter == element.datetime));
+        let cityFound = ((cityFilter == "") || (cityFilter == element.city));
+        let stateFound = ((stateFilter == "") || (stateFilter == element.state));
+        let shapeFound = ((shapeFilter == "") || (shapeFilter == "none") || (shapeFilter == element.shape));
+        if (noneSelected || (dateFound && cityFound && stateFound && shapeFound)) {
             let row = body.insertRow();
             for (key in element) {
                 let cell = row.insertCell();
@@ -73,26 +84,40 @@ function replaceTableBody(body, tableData) {
     generateTable(tbody, tableData, filter);
 }
 
-// Add button click event
+// Add events
+
 var button = d3.select("#DateFilter");
 button.on("click", redoTableRows);
+var inputDate = d3.select("#DateInput");
+var inputCity = d3.select("#CityInput");
+var selectState = d3.select("#select-state-col").select("select");
+var selectShape = d3.select("#select-shape");
 
-// Add input change event
-var inputField = d3.select("#DateInput");
-var newText = "";
-inputField.on("change", function() {
-  newText = d3.event.target.value;
-  console.log("Input changed: "+newText);
+inputDate.on("change", function() {
+  dateText = d3.event.target.value;
+  console.log("Date Input changed: "+dateText);
+});
+inputCity.on("change", function() {
+  cityText = d3.event.target.value.toLowerCase();
+  console.log("City Input changed: "+cityText);
+});
+selectState.on("change", function() {
+    stateSelected = d3.select(this).property('value').toLowerCase();
+    console.log("State Selection changed: "+stateSelected);
+});
+selectShape.on("change", function() {
+    shapeSelected = d3.event.target.value.toLowerCase();
+    console.log("Shape Selection changed: "+shapeSelected);
 });
 
 // Remove table body rows, then add filtered rows
 function redoTableRows() {
     let d3tbody = d3.select("tbody");
     d3tbody.html("");
-    generateTableBody(tbody, data, newText)
+    generateTableBody(tbody, data, dateText, cityText, stateSelected, shapeSelected)
 }
 
 // Create Curated Sightings Table
-generateTableBody(tbody, tableData, "");
+generateTableBody(tbody, tableData, "", "", "", "");
 generateTableHead(theadRow, firstRow);
 

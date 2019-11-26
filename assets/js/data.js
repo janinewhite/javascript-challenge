@@ -328,7 +328,7 @@ var data = [{
     state: "ca",
     country: "us",
     shape: "triangle",
-    durationMinutes: "4min",
+    durationMinutes: "4 min",
     comments: "Triangle shaped object spotted over Sacramento River."
   },
   {
